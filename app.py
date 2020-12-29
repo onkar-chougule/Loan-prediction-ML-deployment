@@ -10,6 +10,10 @@ __minmax=None
 __col=None
 
 app=Flask(__name__)
+__standard=pickle.load(open('./ml_model/StdScaler.pkl','rb'))
+__minmax=pickle.load(open('./ml_model/MMScaler.pkl','rb'))
+__model = pickle.load(open('./ml_model/log_reg_mod.pkl', 'rb'))
+__col=["gender", "self_employed", "credit_history", "married", "dependents", "education", "applicantincome", "coapplicantincome", "loanamount", "loan_amount_term", "property_area_rural", "property_area_semiurban", "property_area_urban"]
 
 @app.route('/')
 def home():
@@ -59,29 +63,29 @@ def get_result():
     return render_template('index.html',result=resultpy)
 
 
-def load_saved_ml_model():
-    global __model
-    if __model is None:
+# def load_saved_ml_model():
+#     global __model
+#     if __model is None:
         # with open('./ml_model/log_reg_mod.pickle','rb') as f:
         #     __model=pickle.load(f)
-        __model = pickle.load(open('./ml_model/log_reg_mod.pkl', 'rb'))
+    #     __model = pickle.load(open('./ml_model/log_reg_mod.pkl', 'rb'))
 
-    global __standard
-    global __minmax
-    __standard=pickle.load(open('./ml_model/StdScaler.pkl','rb'))
-    __minmax=pickle.load(open('./ml_model/MMScaler.pkl','rb'))
+    # global __standard
+    # global __minmax
+    # __standard=pickle.load(open('./ml_model/StdScaler.pkl','rb'))
+    # __minmax=pickle.load(open('./ml_model/MMScaler.pkl','rb'))
     # with open('./ml_model/StdScaler.pickle','rb') as f:
     #     __standard=pickle.load(f)
     # with open('./ml_model/MMScaler.pickle','rb') as f:
     #     __minmax=pickle.load(f)
 
-    global __col
+    # global __col
     # with open('./ml_model/columns.json') as f:
     #     __col = json.load(f)
-    __col=["gender", "self_employed", "credit_history", "married", "dependents", "education", "applicantincome", "coapplicantincome", "loanamount", "loan_amount_term", "property_area_rural", "property_area_semiurban", "property_area_urban"]
+    # __col=["gender", "self_employed", "credit_history", "married", "dependents", "education", "applicantincome", "coapplicantincome", "loanamount", "loan_amount_term", "property_area_rural", "property_area_semiurban", "property_area_urban"]
 
 
 
 if __name__ == '__main__':
-    load_saved_ml_model()
+    # load_saved_ml_model()
     app.run(debug=True)
