@@ -73,8 +73,8 @@ def load_saved_ml_model():
         __minmax=pickle.load(f)
 
     global __col
-    f=open('./ml_model/columns.json')
-    __col=json.load(f)
+    with open('./ml_model/columns.json') as f:
+        __col = json.load(f)
 
 
 
