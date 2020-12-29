@@ -45,7 +45,7 @@ def get_result():
     
     x=x.reshape(1,13)
     df=pd.DataFrame(x)
-    df.columns=__col['data_columns']
+    df.columns=__col
     df[['applicantincome','coapplicantincome','loan_amount_term']]=__minmax.transform(df[['applicantincome','coapplicantincome','loan_amount_term']])
     df[['loanamount']]=__standard.transform(df[['loanamount']])
     res=__model.predict(df)
@@ -73,8 +73,9 @@ def load_saved_ml_model():
         __minmax=pickle.load(f)
 
     global __col
-    with open('./ml_model/columns.json') as f:
-        __col = json.load(f)
+    # with open('./ml_model/columns.json') as f:
+    #     __col = json.load(f)
+    __col=["gender", "self_employed", "credit_history", "married", "dependents", "education", "applicantincome", "coapplicantincome", "loanamount", "loan_amount_term", "property_area_rural", "property_area_semiurban", "property_area_urban"]
 
 
 
