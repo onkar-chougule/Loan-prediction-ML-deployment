@@ -1,0 +1,19 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+
+h1{
+    color:darkblue;
+}
+
+h2{
+    color:blue;
+}
+
+body{
+    background-color:lightblue;
+}
+
+/* .container input {
+    width: 100%;
+    clear: both;
+  } */
