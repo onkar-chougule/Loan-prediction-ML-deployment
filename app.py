@@ -68,7 +68,7 @@ def load_saved_ml_model():
 
     global __standard
     global __minmax
-    __standard=pickle.load(open('./ml_model/StdScaler.pickle','rb'))
+    __standard=pickle.load(open('./ml_model/StdScaler.pkl','rb'))
     __minmax=pickle.load(open('./ml_model/MMScaler.pkl','rb'))
     # with open('./ml_model/StdScaler.pickle','rb') as f:
     #     __standard=pickle.load(f)
