@@ -62,15 +62,18 @@ def get_result():
 def load_saved_ml_model():
     global __model
     if __model is None:
-        with open('./ml_model/log_reg_mod.pickle','rb') as f:
-            __model=pickle.load(f)
+        # with open('./ml_model/log_reg_mod.pickle','rb') as f:
+        #     __model=pickle.load(f)
+        __model = pickle.load(open('./ml_model/log_reg_mod.pkl', 'rb'))
 
     global __standard
     global __minmax
-    with open('./ml_model/StdScaler.pickle','rb') as f:
-        __standard=pickle.load(f)
-    with open('./ml_model/MMScaler.pickle','rb') as f:
-        __minmax=pickle.load(f)
+    __standard=pickle.load(open('./ml_model/StdScaler.pickle','rb'))
+    __minmax=pickle.load(open('./ml_model/MMScaler.pkl','rb'))
+    # with open('./ml_model/StdScaler.pickle','rb') as f:
+    #     __standard=pickle.load(f)
+    # with open('./ml_model/MMScaler.pickle','rb') as f:
+    #     __minmax=pickle.load(f)
 
     global __col
     # with open('./ml_model/columns.json') as f:
