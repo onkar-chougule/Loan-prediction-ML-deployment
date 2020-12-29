@@ -16,6 +16,7 @@ __model = pickle.load(open('./ml_model/log_reg_mod.pkl', 'rb'))
 __col=["gender", "self_employed", "credit_history", "married", "dependents", "education", "applicantincome", "coapplicantincome", "loanamount", "loan_amount_term", "property_area_rural", "property_area_semiurban", "property_area_urban"]
 
 @app.route('/')
+@app.route('/home')
 def home():
     return render_template('index.html')
 
@@ -60,7 +61,7 @@ def get_result():
     else:
         resultpy="Congratulations!, Your loan can be processed"
 
-    return render_template('index.html',result=resultpy)
+    return render_template('result.html',result=resultpy)
 
 
 # def load_saved_ml_model():
