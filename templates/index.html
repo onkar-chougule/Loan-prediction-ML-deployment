@@ -6,24 +6,25 @@
     <link  type="text/css" rel="stylesheet" href="{{ url_for('static', filename='styles/home.css')}}" />
 </head>
 
-<body>
+<body style="font-family: sans-serif">
     <div>
+        <h3>This is a demo project carried out by Onkar Chougule: <a href="https://www.linkedin.com/in/onkar-chougule-/">LinkedIn Profile</a></h3>
         <h1>please enter all the details carefully!!</h1>
     </div>
     <form action="{{url_for('get_result')}}" method="post" class="container">
 
-        <h2>Submit Loan Ammount
-        <input required type="text" name="LoanAmmount" id="uiLoanAmmount" class="area" class="floatLabel" placeholder=" enter ammount in rupees ">
-        </h2>
-        <h2>Enter Loan ammount term
-        <input required type="text" name="LoanAmmountTerm" id="uiLaterm" class="area" class="floatLabel" placeholder=" enter number of months ">
-        </h2>
-        <h2>Enter Applicant's income
-        <input required type="text" name="appincome" id="uiAppIncome" class="area" class="floatLabel" placeholder=" enter ammount in rupees ">
-        </h2>
-        <h2>Enter Co-Applicant's Income
-        <input required type="text" name="coappincome" id="uiCoAppIncome" class="area" class="floatLabel" placeholder=" enter ammount in rupees ">
-        </h2>
+        <h2>Submit Loan Ammount </h2>
+        <input required type="number" min="0" name="LoanAmmount" id="uiLoanAmmount" class="area" class="floatLabel" placeholder="ammount in rupees">
+       
+        <h2>Enter Loan ammount term </h2>
+        <input required type="number" min="0" name="LoanAmmountTerm" id="uiLaterm" class="area" class="floatLabel" placeholder="number of months">
+        
+        <h2>Enter Applicant's income</h2>
+        <input required type="number" min="0" name="appincome" id="uiAppIncome" class="area" class="floatLabel" placeholder="ammount in rupees">
+        
+        <h2>Enter Co-Applicant's Income</h2>
+        <input required type="number" min="0" name="coappincome" id="uiCoAppIncome" class="area" class="floatLabel" placeholder="ammount in rupees">
+        
 
         <h2>Has Applicant completed her/his graduation?</h2>
         <h3>
